@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            position: relative;
+            width: 60%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image {
+            width: 100%;
+            display: block;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            width: 100%;
+            padding: 15px;
+            transition: max-height 0.5s ease-in-out;
+            max-height: 150px;
+            overflow: hidden;
+        }
+        .hidden {
+            max-height: 0;
+            padding: 0;
+        }
+        .toggle-btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Replace with your image -->
+    <img src="araw.jpg" alt="Informative Image" class="image">
+    
+    <!-- Text that toggles -->
+    <div class="overlay hidden" id="infoBox">
+        <p><strong>PARTNERSHIP.</strong> Delegates from the National Commission on Muslim Filipinos, headed by chief of staff Hassanal Abdurahim (5th from left), meet with officials of the Directorate General of Islamic Education of the Ministry of Religious Affairs of Indonesia to discuss a Madrasah student exchange program on February 11, 2025, in Jakarta, Indonesia.</p>
+    </div>
+
+    <!-- Toggle button -->
+    <button class="toggle-btn" id="toggleButton">INFO</button>
+</div>
+
+<script>
+    const infoBox = document.getElementById('infoBox');
+    const toggleButton = document.getElementById('toggleButton');
+
+    toggleButton.addEventListener('click', function () {
+        infoBox.classList.toggle('hidden');
+        toggleButton.textContent = infoBox.classList.contains('hidden') ? "INFO" : "HIDE";
+    });
+</script>
+
+</body>
+</html>
